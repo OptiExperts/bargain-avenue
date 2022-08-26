@@ -1,9 +1,6 @@
 {% assign products = collection.products | sort: 'available' %}
 {% for product in products %}
   <h4>{{ product.title }}</h4>
-  <div class="grid-view-item__meta">
-    <span class="product-price__price">$19.99</span>
- </div>
 {% endfor %}
 {% style %}
    .grid-view-item__image {object-fit : {{section.settings.image-effect}} !important;}
