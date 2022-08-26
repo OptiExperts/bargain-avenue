@@ -866,7 +866,7 @@
                                         <option value="created-descending">Date, new to old</option>
                                       </select>
                                       {%- capture sort_by_best_selling_active -%}
-                                        {%- if collection.sort_by == 'manual' -%}active{%- endif -%}
+                                        {%- if collection.sort_by == 'best-selling' -%}active{%- endif -%}
                                       {%- endcapture -%}
                                       {%- capture sort_by_price_active -%}
                                         {%- if collection.sort_by == 'price-descending' or collection.sort_by == 'price-ascending' -%}active{%- endif -%}
