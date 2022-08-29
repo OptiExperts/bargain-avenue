@@ -145,7 +145,7 @@
                     data-thumbnail-id="{{ media.id }}"
                     {% if enable_zoom %}data-zoom="{{ media.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
                     {% endif %}>
-                    <img class="lazy2 product-single__thumbnail-image" data-src="{{ media.src | img_url: '110x110', scale: 2 }}"
+                    <img class="product-single__thumbnail-image" data-src="{{ media.src | img_url: '110x110', scale: 2 }}"
                         alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}">
                 </a>
                 {% when 'external_video' %}
