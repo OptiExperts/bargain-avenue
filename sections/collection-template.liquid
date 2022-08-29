@@ -855,7 +855,7 @@
                                   <div class="filters-toolbar__input-wrapper">
                                       <select name="sort_by" id="SortBy" class="filters-toolbar__input medium-up--hide"
                                         aria-describedby="a11y-refresh-page-message a11y-selection-message"
-                                        data-default-sortby="title-ascending" style="width: auto;">
+                                        data-default-sortby="manual" style="width: auto;">
                                         <option value="manual" selected>Featured</option>
                                         <option value="best-selling">Best selling</option>
                                         <option value="title-ascending">Alphabetically, A-Z</option>
@@ -883,7 +883,7 @@
                                             {% for option in collection.sort_options %}
                                               {% if option.value == collection.sort_by %}
                                                   <span value="{{ option.value }}">{{ option.name }}</span>
-                                              {% elsif collection.sort_by == blank and option.value == 'title-ascending' %}
+                                              {% elsif collection.sort_by == blank and option.value == 'manual' %}
                                                   <span value="{{ option.value }}">{{ option.name }}</span>
                                               {%endif%}
                                             {% endfor %}
@@ -899,7 +899,7 @@
                                             {% for option in collection.sort_options %}
                                               <li class="{% if option.value == collection.sort_by %}
                                               active-sort
-                                              {% elsif collection.sort_by == blank and option.value == 'title-ascending' %}
+                                              {% elsif collection.sort_by == blank and option.value == 'manual' %}
                                               active-sort
                                               {%endif%}">
                                                   <span data-href="{{ option.value }}">{{ option.name }}</span>
