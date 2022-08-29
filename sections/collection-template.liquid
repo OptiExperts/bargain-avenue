@@ -848,14 +848,14 @@
                           {% endif %}
 
                           <div class="filters-toolbar">
-
+<h1>this is a test</h1>
                             <div class="filters-toolbar__item-wrapper">
                                 <div class="filters-toolbar__item-child">
                                   <label class="filters-toolbar__label select-label" for="SortBy">Sort by</label>
                                   <div class="filters-toolbar__input-wrapper">
                                       <select name="sort_by" id="SortBy" class="filters-toolbar__input medium-up--hide"
                                         aria-describedby="a11y-refresh-page-message a11y-selection-message"
-                                        data-default-sortby="title-ascending" style="width: auto;">
+                                        data-default-sortby="manual" style="width: auto;">
                                         <option value="manual">Featured</option>
                                         <option value="best-selling">Best selling</option>
                                         <option value="title-ascending" selected>Alphabetically, A-Z</option>
@@ -883,7 +883,7 @@
                                             {% for option in collection.sort_options %}
                                               {% if option.value == collection.sort_by %}
                                                   <span value="{{ option.value }}">{{ option.name }}</span>
-                                              {% elsif collection.sort_by == blank and option.value == 'manual' %}
+                                              {% elsif collection.sort_by == blank and option.value == 'title-ascending' %}
                                                   <span value="{{ option.value }}">{{ option.name }}</span>
                                               {%endif%}
                                             {% endfor %}
