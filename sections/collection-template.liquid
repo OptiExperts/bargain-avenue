@@ -855,7 +855,7 @@
                                   <div class="filters-toolbar__input-wrapper">
                                       <select name="sort_by" id="SortBy" class="filters-toolbar__input medium-up--hide"
                                         aria-describedby="a11y-refresh-page-message a11y-selection-message"
-                                        data-default-sortby="manual" style="width: auto;">
+                                        data-default-sortby="title-ascending" style="width: auto;">
                                         <option value="manual">Featured</option>
                                         <option value="best-selling">Best selling</option>
                                         <option value="title-ascending" selected>Alphabetically, A-Z</option>
@@ -883,7 +883,7 @@
                                             {% for option in collection.sort_options %}
                                               {% if option.value == collection.sort_by %}
                                                   <span value="{{ option.value }}">{{ option.name }}</span>
-                                              {% elsif collection.sort_by == blank and option.value == 'manual' %}
+                                              {% elsif collection.sort_by == blank and option.value == 'title-ascending' %}
                                                   <span value="{{ option.value }}">{{ option.name }}</span>
                                               {%endif%}
                                             {% endfor %}
@@ -892,7 +892,8 @@
                                               class="icon icon-chevron-down" viewBox="0 0 9 9">
                                               <path
                                                   d="M8.542 2.558a.625.625 0 0 1 0 .884l-3.6 3.6a.626.626 0 0 1-.884 0l-3.6-3.6a.625.625 0 1 1 .884-.884L4.5 5.716l3.158-3.158a.625.625 0 0 1 .884 0z"
-                                                  fill="#fff"></path>
+                                                  fill="#fff">
+                                                </path>
                                             </svg>
                                         </div>
                                         <div class="content">
