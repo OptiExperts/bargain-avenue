@@ -36,7 +36,7 @@
                  <div class="content-box grid__item small--one-whole medium-up--one-third">
                     <a  class="image_wrapper" href="{{ section.settings.block_two_link }}">
                         {% if section.settings.block_two_img != blank %}
-                            <img data-src="{{ section.settings.block_two_img | img_url: '100x' }}" alt="{{ section.settings.block_two_heading }}" class="lazyload animation--{{settings.lazyloading-effect}}"/>
+                            <img data-src="{{ section.settings.block_two_img | img_url: '100x' }}" alt="{{ section.settings.block_two_heading }}" class="lazy2 lazyload animation--{{settings.lazyloading-effect}}"/>
                         {% endif %}
                         {{ section.settings.block_two_img_svg }}
                     </a>
@@ -55,7 +55,7 @@
                                         
                                 </span>
                                 {{ section.settings.block_two_img_svg }}
-                                <img src="{{ section.settings.popup_two_content | img_url:'1200x' }}" alt="{{ section.settings.popup_one_content.alt }}">
+                                <img class="lazy2" data-src="{{ section.settings.popup_two_content | img_url:'1200x' }}" alt="{{ section.settings.popup_one_content.alt }}">
                                 <div class="text">
                                     {{ section.settings.popup_two_text }}
                                 </div>
@@ -66,7 +66,7 @@
                  <div class="content-box grid__item small--one-whole medium-up--one-third">
                     <a class="image_wrapper" href="{{ section.settings.block_three_link }}">
                         {% if section.settings.block_three_img != blank %}
-                            <img data-src="{{ section.settings.block_three_img | img_url: '100x' }}" alt="{{ section.settings.block_three_heading }}" class="lazyload animation--{{settings.lazyloading-effect}}"/>
+                            <img data-src="{{ section.settings.block_three_img | img_url: '100x' }}" alt="{{ section.settings.block_three_heading }}" class="lazy2 lazyload animation--{{settings.lazyloading-effect}}"/>
                         {% endif %}
                         {{ section.settings.block_three_img_svg }}
                     </a>
