@@ -856,9 +856,9 @@
                                       <select name="sort_by" id="SortBy" class="filters-toolbar__input medium-up--hide"
                                         aria-describedby="a11y-refresh-page-message a11y-selection-message"
                                         data-default-sortby="title-ascending" style="width: auto;">
-                                        <option value="manual" selected>Featured</option>
+                                        <option value="manual">Featured</option>
                                         <option value="best-selling">Best selling</option>
-                                        <option value="title-ascending">Alphabetically, A-Z</option>
+                                        <option value="title-ascending" selected>Alphabetically, A-Z</option>
                                         <option value="title-descending">Alphabetically, Z-A</option>
                                         <option value="price-ascending">Price, low to high</option>
                                         <option value="price-descending">Price, high to low</option>
@@ -883,7 +883,7 @@
                                             {% for option in collection.sort_options %}
                                               {% if option.value == collection.sort_by %}
                                                   <span value="{{ option.value }}">{{ option.name }}</span>
-                                              {% elsif collection.sort_by == blank and option.value == 'title-ascending' %}
+                                              {% elsif collection.sort_by == blank and option.value == 'manual' %}
                                                   <span value="{{ option.value }}">{{ option.name }}</span>
                                               {%endif%}
                                             {% endfor %}
