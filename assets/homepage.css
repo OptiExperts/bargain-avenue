@@ -669,7 +669,7 @@ textarea {
   padding: 10px;
   opacity: 1;
   z-index: 10000;
-  transition: none; }
+ }
 .box {
   background: no-repeat;
   background-color: #f7f7f7;
@@ -998,7 +998,7 @@ a[href^="tel"] {
   @media only screen and (min-width: 768px) {
     .btn {
       padding: 10px 18px;
-    transition: 0.3s; 
+   
     } }
   .btn:not([disabled]):hover, .btn:focus {
     color: var(--color-btn-primary-text);
@@ -1128,40 +1128,40 @@ tfoot th {
 svg:not(:root) {
   overflow: hidden; }
 .animation--zoomin {
-  transition: transform var(--anim-duration);
+
   transform: scale(0.7) !important; }
   .animation--zoomin.lazyloaded {
     transform: scale(1) !important; }
 .animation--zoomout {
-  transition: transform var(--anim-duration);
+  
   transform: scale(1.1) !important; }
   .animation--zoomout.lazyloaded {
     transform: scale(1) !important; }
 .animation--fade-in {
   opacity: 0;
-  transition: opacity var(--anim-duration) ease-in-out; }
+   }
   @media only screen and (max-width: 749px) {
     .animation--fade-in {
-      transition: opacity 1s ease-in-out !important; } }
+       } }
   .animation--fade-in.lazyloaded {
     opacity: 1; }
 .animation--translatex {
-  transition: transform var(--anim-duration);
+  
   transform: translateX(-20px); }
   .animation--translatex.lazyloaded {
     transform: translateX(0px); }
 .animation--translatey {
-  transition: transform var(--anim-duration);
+  
   transform: translateY(-20px); }
   .animation--translatey.lazyloaded {
     transform: translateY(0px); }
 .animation--scalex {
-  transition: transform var(--anim-duration);
+  
   transform: scaleX(0.9) !important; }
   .animation--scalex.lazyloaded {
     transform: scaleX(1) !important; }
 .animation--scaley {
-  transition: transform var(--anim-duration);
+  
   transform: scaleY(0.9) !important; }
   .animation--scaley.lazyloaded {
     transform: scaleY(1) !important; }
@@ -1570,7 +1570,7 @@ hr {
   -webkit-overflow-scrolling: touch;
   z-index: 9;
   background-color: var(--color-bg);
-  transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1); }
+   }
   .drawer input[type="text"],
   .drawer textarea {
     background-color: var(--color-bg);
@@ -1594,7 +1594,7 @@ hr {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 8;
-  transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1); }
+   }
   .js-drawer-open .drawer-page-content::after {
     visibility: visible;
     opacity: 1; }
@@ -1952,7 +1952,7 @@ hr {
   pointer-events: none; }
 .search-header,
 .search-header__submit {
-  transition: all 0.35s cubic-bezier(0.29, 0.63, 0.44, 1); }
+   }
 .no-svg .site-header__search {
   display: inline-block; }
 .no-svg .search-header {
@@ -1963,7 +1963,7 @@ hr {
 .mobile-nav {
   display: block;
   transform: translate3d(0, 0, 0);
-  transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1); }
+   }
   .sub-nav--is-open .mobile-nav {
     transform: translate3d(-100%, 0, 0); }
   .third-nav--is-open .mobile-nav {
@@ -2022,7 +2022,7 @@ hr {
     display: block;
     opacity: 1; }
   .mobile-nav__dropdown.is-closing {
-    transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
+
     opacity: 0.99; }
   .mobile-nav__dropdown .mobile-nav__sublist-header {
     font-family: var(--font-stack-header);
@@ -2039,7 +2039,7 @@ hr {
   top: 0;
   left: 0;
   background-color: var(--color-topheader-bg);
-  transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
+
   display: none;
   overflow: hidden;
   width: 100%; }
@@ -2241,7 +2241,7 @@ hr {
   border-bottom: 1px solid transparent;
   display: inline; }
 .anim-label {
-  animation: beat 1s ease infinite alternate; }
+   }
 @keyframes beat {
   from {
     transform: translateX(20px) scale(1); }
