@@ -107,7 +107,7 @@
 
     {%- assign _item_image_size = '180x' -%}
 
-    <script type="text/javascript">
+    <script type="lazyload2">
       Shopify.updateCartInfo = function(cart, cart_summary_id, cart_count_id, type = null) {
 
         if (type == 'changeQty') {
@@ -212,8 +212,8 @@
     </script>
 
       {%- unless template contains 'cart' -%}
-        <script src="{{ 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js' }}"></script>
-          <script>
+        <script type="lazyload2" data-src="{{ 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js' }}"></script>
+          <script type="lazyload2">
             var cartObj = (function($,_){
 
               var cartPage = {
