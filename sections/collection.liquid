@@ -23,9 +23,11 @@
   {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
   <ul class="grid grid--uniform grid--view-items">
     {% for product in collection.products limit: product_limit %}
+      {% unless product.tags contains 'out-of-stock' %}
       <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
         {% include 'product-card-grid', max_height: max_height %}
       </li>
+        {% endunless %}
     {% else %}
       {% for i in (1..product_limit) %}
         <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
