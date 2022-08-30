@@ -744,7 +744,7 @@
 
 
 </style>
-<h1>this is a test 2</h1>
+
 {% if section.settings.high_resolution_image %}
 {%- assign grid_image_width = '' -%}
 {% endif %}
@@ -958,11 +958,9 @@
          <div class="page-width px-0">
          <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
             {% for product in collection.products %}
-            {% unless product.tags contains 'out-of-stock' %}
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
                {% include 'product-card-grid', max_height: max_height %}
             </li>
-            {% endunless %}
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
             <li class="grid__item">
@@ -990,20 +988,17 @@
             {% endif %}
             {% endfor %}
          </ul>
-         </div> 
+         </div>
          {% else %}
          <div class="page-width px-0">
          <ul class="list-view-items">
             {% for product in collection.products %}
-            
             <li class="list-view-item">
                {% include 'product-card-list', product: product %}
             </li>
-            
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0%}
             {% for i in (1..4) %}
-            {% unless product.tags contains 'out-of-stock' %}
             <li class="list-view-item">
                <a href="#" class="list-view-item__link">
                   <div class="list-view-item__image-column">
@@ -1022,7 +1017,6 @@
                   </div>
                </a>
             </li>
-            {% endunless %}
             {% endfor %}
             {% else %}
             {%- assign is_empty_collection = true -%}
