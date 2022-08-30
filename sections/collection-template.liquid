@@ -943,7 +943,7 @@
             {% endif %}
          </header>
 
-
+<h1>this is a test</h1>
          {% if section.settings.layout == 'grid' %}
          {% case section.settings.grid %}
          {% when 2 %}
@@ -997,7 +997,7 @@
             <li class="list-view-item">
                {% include 'product-card-list', product: product %}
             </li>
-            {% endunless %}
+            
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0%}
             {% for i in (1..4) %}
@@ -1019,6 +1019,7 @@
                   </div>
                </a>
             </li>
+            {% endunless %}
             {% endfor %}
             {% else %}
             {%- assign is_empty_collection = true -%}
