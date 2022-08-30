@@ -745,6 +745,16 @@
 
 </style>
 
+{% if variant.title %}
+{%- assign compare_at_price = variant.compare_at_price -%}
+{%- assign price = variant.price -%}
+{%- assign available = variant.available -%}
+{% else %}
+{%- assign compare_at_price = 1999 -%}
+{%- assign price = 1999 -%}
+{%- assign available = true -%}
+{% endif %}
+
 {% if section.settings.high_resolution_image %}
 {%- assign grid_image_width = '' -%}
 {% endif %}
@@ -942,7 +952,7 @@
             {% endif %}
          </header>
 
- 
+
          {% if section.settings.layout == 'grid' %}
          {% case section.settings.grid %}
          {% when 2 %}
@@ -957,13 +967,15 @@
          <div class="page-width px-0">
          <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
             {% for product in collection.products %}
-            {% unless product.tags contains 'out-of-stock' %}
-            
+            {% if available %}
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-              {% include 'product-card-grid', max_height: max_height %}
-           </li>
-            
-            
+               {% include 'product-card-grid', max_height: max_height %}
+            </li>
+            {% else %}
+
+            <h1>testing</h1>
+
+            {% endif %}
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
             <li class="grid__item">
@@ -986,13 +998,9 @@
                   {% endfor %}
                </div>
             </li>
-            
-            
             {% else %}
             {%- assign is_empty_collection = true -%}
             {% endif %}
-            {% endunless %}
-
             {% endfor %}
          </ul>
          </div>
