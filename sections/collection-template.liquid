@@ -771,7 +771,6 @@
 {% paginate collection.products by limit %}
 <div id="collection" class="page-width" data-section-id="{{ section.id }}" data-section-type="collection-template">
 
-  <h1 style="color: red;">this is a test</h1>
    <div class="no-filter">
       <div class="medium-up ">
          <header class="collection-header">
@@ -993,7 +992,7 @@
          <div class="page-width px-0">
          <ul class="list-view-items">
             {% for product in collection.products %}
-            {% unless product.tags contains 'out-of-stock' %}
+
             <li class="list-view-item">
                {% include 'product-card-list', product: product %}
             </li>
@@ -1019,7 +1018,7 @@
                   </div>
                </a>
             </li>
-            {% endunless %}
+      
             {% endfor %}
             {% else %}
             {%- assign is_empty_collection = true -%}
