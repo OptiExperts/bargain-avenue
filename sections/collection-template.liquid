@@ -957,8 +957,8 @@
          <div class="page-width px-0">
          <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
             {% for product in collection.products %}
-            {% unless product.tags contains 'sold_out' %}
-            <h1>tag change</h1>
+            {% unless product.tags contains 'sold-out' %}
+            <h1>tag 1</h1>
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
               {% include 'product-card-grid', max_height: max_height %}
            </li>
