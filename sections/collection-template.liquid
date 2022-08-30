@@ -997,6 +997,7 @@
          <ul class="list-view-items">
             {% for product in collection.products %}
               {% unless product.tags contains 'out-of-stock' %}
+                <h1>test 2</h1>
             <li class="list-view-item">
                {% include 'product-card-list', product: product %}
             </li>
