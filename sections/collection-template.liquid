@@ -752,7 +752,7 @@
 {% when 2 %}
 {%- assign max_height = 530 -%}
 {% when 3 %}
-{%- assign max_height = 345 -%} 
+{%- assign max_height = 345 -%}
 {% when 4 %}
 {%- assign max_height = 250 -%}
 {% when 5 %}
@@ -943,6 +943,7 @@
             {% endif %}
          </header>
 
+
          {% if section.settings.layout == 'grid' %}
          {% case section.settings.grid %}
          {% when 2 %}
@@ -992,11 +993,9 @@
          <div class="page-width px-0">
          <ul class="list-view-items">
             {% for product in collection.products %}
-
             <li class="list-view-item">
                {% include 'product-card-list', product: product %}
             </li>
-            
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0%}
             {% for i in (1..4) %}
@@ -1018,7 +1017,6 @@
                   </div>
                </a>
             </li>
-      
             {% endfor %}
             {% else %}
             {%- assign is_empty_collection = true -%}
@@ -1807,4 +1805,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}
