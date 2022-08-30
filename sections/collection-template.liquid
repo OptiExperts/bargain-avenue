@@ -958,11 +958,11 @@
          <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
             {% for product in collection.products %}
             {% unless product.tags contains 'sold-out' %}
-            <h1>tag 1</h1>
+         
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
               {% include 'product-card-grid', max_height: max_height %}
            </li>
-            {% endunless %}
+            
             
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
@@ -986,6 +986,8 @@
                   {% endfor %}
                </div>
             </li>
+            <h1>test</h1>
+            {% endunless %}
             {% else %}
             {%- assign is_empty_collection = true -%}
             {% endif %}
