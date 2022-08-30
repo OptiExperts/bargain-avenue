@@ -993,9 +993,11 @@
          <div class="page-width px-0">
          <ul class="list-view-items">
             {% for product in collection.products %}
+            {% unless product.tags contains 'out-of-stock' %}
             <li class="list-view-item">
                {% include 'product-card-list', product: product %}
             </li>
+            {% endunless %}
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0%}
             {% for i in (1..4) %}
