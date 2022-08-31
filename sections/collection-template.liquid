@@ -745,6 +745,14 @@
 
 </style>
 
+{% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity | sort %}
+
+{% for product in inventoryCount %}
+  <h2>{{ product.title }}</h2>
+{% endfor %}
+
+
+{%- comment -%}
 {% assign newArray = false %}
 {% assign zeroFill = '0000' %}
 {% assign zeroFillSize = zeroFill | size %}
@@ -810,7 +818,7 @@
 {% elsif section.settings.scroll-effect == 'inf-scroll'  %}
 {%- assign limit = 10000 -%}
 {% endif %}
-
+{%- endcomment -%}
 {%- assign refund_banner_block = section.blocks | where: 'type','refund-banner' | first -%}
 
 {% paginate collection.products by limit %}
