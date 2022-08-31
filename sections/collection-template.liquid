@@ -774,7 +774,7 @@
 
 {% assign newArray = newArray | sort %}
 {% for newArrayItem in newArray %}
-{% assign i = newArrayItem | split:'.' | first | abs %}
+{% assign i = newArrayItem | split:'.' | last | abs %}
 {% assign grid = 'small--one-half medium-up--one-fifth' %}
 {% if paginationAmount == 1 %}
   {% assign grid = 'one-whole pagination_1' %}
