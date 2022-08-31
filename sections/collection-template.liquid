@@ -745,16 +745,11 @@
 
 </style>
 
-{% for variant in product.variants %}
-  {% if variant.inventory_management != "shopify" %}{% continue %}{% endif %}
-    {% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity  %}
-{% endfor %}
+{% assign product_by_inventory = collection.products | sort: "variant.inventory_quantity" %}
 
-<h4>{{ inventoryCount }}</h4>
-{% for product in inventoryCount %}
-  <h2>{{ product.title }}</h2>
+{% for product in product_by_inventory %}
+  <h3>product.title</h3>
 {% endfor %}
-
 
 {%- comment -%}
 {% assign newArray = false %}
