@@ -745,16 +745,7 @@
 
 </style>
 
-{% for product in collection.products %}
-
-  {% assign inventoryCount = 0 %}
-
-  {% for variant in product.variants %}
-  {% if variant.inventory_management != "shopify" %}{% continue %}{% endif %}
-    {% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity %}
-{% endfor %}
-<h1>Test{{ inventoryCount }}</h1>
-{% assign product_by_inventory = collection.products | sort: "{{ inventoryCount }}" %}
+{% assign product_by_inventory = collection.products | sort: "{{variant.inventory_quantity}}" %}
 
 {% for product in product_by_inventory %}
   <h3>{{ product.title }}</h3>
@@ -1868,5 +1859,3 @@
   ]
 }
 {% endschema %}
-
-
