@@ -746,8 +746,14 @@
 </style>
 
 
-{% assign product_by_inventory = collection.products | sort %}
 
+<<<<<<< HEAD
+=======
+{% assign product_by_inventory = collection.products | sort: "{{ inventoryCount }}" %}
+
+<h1>test {{ product_by_inventory }}</h1>
+
+>>>>>>> 02c2946fc4d1ff3c62fe3c551d38aeecf5048a0a
 {% for product in product_by_inventory %}
   <h3>{{ product.title }}</h3>
 {% endfor %}
