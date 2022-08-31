@@ -786,7 +786,7 @@
    {% assign grid = 'small--one-half medium-up--one-quarter' %}
 {% endif %}
 <div class="grid__item {{ grid }}">
-  {% include 'product-card', product: collection.products[i] %}
+  {% include 'product-card-grid', product: collection.products[i], max_height: max_height %}
 </div>
 {% endfor %}
 
