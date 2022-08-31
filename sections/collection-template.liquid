@@ -745,7 +745,10 @@
 
 </style>
 
-{% assign product_by_inventory = collection.products | sort: "{{variant.inventory_quantity}}" %}
+
+{% assign product_by_inventory = collection.products | sort: "{{ inventoryCount }}" %}
+
+<h1>test {{ product_by_inventory }}</h1>
 
 {% for product in product_by_inventory %}
   <h3>{{ product.title }}</h3>
