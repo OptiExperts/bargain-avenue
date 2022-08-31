@@ -775,7 +775,6 @@
 {% assign newArray = newArray | sort | reverse %}
 {% for newArrayItem in newArray %}
 {% assign i = newArrayItem | split:'.' | last | abs %}
-
 <div class="grid__item {{ grid }}">
   {% include 'product-card-grid', product: collection.products[i] %}
 </div>
