@@ -753,7 +753,7 @@
   {% if variant.inventory_management != "shopify" %}{% continue %}{% endif %}
     {% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity %}
 {% endfor %}
-
+<h1>Test{{ inventoryCount }}</h1>
 {% assign product_by_inventory = collection.products | sort: "{{ inventoryCount }}" %}
 
 {% for product in product_by_inventory %}
