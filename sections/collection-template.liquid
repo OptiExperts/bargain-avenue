@@ -745,7 +745,7 @@
 
 </style>
 
-{% assign product_by_inventory = collection.products | sort: "{{ variant.inventory_quantity }}" | reverse %}
+{% assign product_by_inventory = collection.products | sort: "price" | reverse %}
 
 {% for product in product_by_inventory %}
   <h3>{{ product.title }}</h3>
