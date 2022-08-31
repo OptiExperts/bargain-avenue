@@ -746,7 +746,7 @@
 </style>
 
 {% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity | sort %}
-
+<h4>{{ inventoryCount }}</h4>
 {% for product in inventoryCount %}
   <h2>{{ product.title }}</h2>
 {% endfor %}
