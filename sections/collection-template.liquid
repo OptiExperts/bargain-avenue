@@ -759,9 +759,9 @@
 
 {% assign indexCharSize = inventoryCount | append:'' | size %}
 {% assign toSlice = zeroFillSize | minus:indexCharSize %}
-{% assign tmpZeroFill = zeroFill | Slice, toslice:0 %}
+{% assign tmpZeroFill = zeroFill | slice:0,toSlice %}
 {% assign newOrder = inventoryCount | default:'0' %}
-{% assign matrix = tmpZeroFill | append:newOrder | append:'.'  | append:forloop.index0 %}
+{% assign matrix = tmpZeroFill | append:newOrder | append:'.'  | append:forloop.index65 %}
 
 {% if newArray %}
   {% assign tmpIndex = matrix | split:',' %}
