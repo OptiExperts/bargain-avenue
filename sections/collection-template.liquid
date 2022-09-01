@@ -931,9 +931,9 @@
          {% when 5 %}
          {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
          {% endcase %}
-         <!-- raja -->
+  
          <div class="page-width px-0">
-<!-- customization starts -->
+
               {% assign newArray = false %}
               {% assign zeroFill = '0000' %}
               {% assign zeroFillSize = zeroFill | size %}
@@ -959,7 +959,7 @@
                 {% endfor %}
 
               {% assign newArray = newArray | sort | reverse %}                  
-              
+
          <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
           {% for newArrayItem in newArray %}
           {% assign i = newArrayItem | split:'.' | last | abs %}
@@ -994,7 +994,7 @@
             {% endfor %}
          </ul>
          </div>
-         <!-- raja -->
+
          {% else %}
          <div class="page-width px-0">
          <ul class="list-view-items">
