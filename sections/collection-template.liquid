@@ -945,7 +945,6 @@
                     {% endfor %}
 
                   {% assign indexCharSize = inventoryCount | append:'' | size %}
-                  <h1>check inoventory size {{ inventoryCount }} </h1>
                   {% assign toSlice = zeroFillSize | minus:indexCharSize %}
                   {% assign tmpZeroFill = zeroFill | slice:0,toSlice %}
                   {% assign newOrder = inventoryCount | default:'0' %}
