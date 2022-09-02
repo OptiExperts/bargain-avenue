@@ -942,6 +942,7 @@
                     {% for variant in product.variants %}
                       {% if variant.inventory_management != "shopify" %}{% continue %}{% endif %}
                       {% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity %}
+                      <h1>test {{ inventoryCount }} </h1>
                     {% endfor %}
 
                   {% assign indexCharSize = inventoryCount | append:'' | size %}
@@ -999,7 +1000,7 @@
 
          {% else %}
          <div class="page-width px-0">
-<!-- raja list -->
+          <!-- raja list -->
           {% assign newArray = false %}
           {% assign zeroFill = '0000' %}
           {% assign zeroFillSize = zeroFill | size %}
