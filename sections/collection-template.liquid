@@ -1145,7 +1145,7 @@
 
 {% endfor %}
 
-{% assign newArray = newArray | sort %}
+{% assign newArray = newArray | sort | reverse %}
 {% for newArrayItem in newArray %}
   {% assign i = newArrayItem | split:'.' | last | abs %}
   {% assign grid = 'small--one-half medium-up--one-fifth' %}
