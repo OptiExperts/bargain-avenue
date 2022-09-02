@@ -956,8 +956,8 @@
 
                   {% if newArray %}
                     {% assign tmpIndex = matrix | split:',' %}
-                    <h1>test2 {{ tmpIndex }} </h1>
                     {% assign newArray = newArray | concat:tmpIndex %}
+                    <h1>test2 {{ newArray }} </h1>
                   {% else %}
                         {% assign newArray = matrix | split:',' %}
                   {% endif %}
