@@ -952,10 +952,11 @@
                   
                   {% assign matrix = tmpZeroFill | append:newOrder | append:'.'  | append:forloop.index0 %}
 
-                  <h1>test1 {{ matrix }} </h1>
+                  
 
                   {% if newArray %}
                     {% assign tmpIndex = matrix | split:',' %}
+                    <h1>test1 {{ tmpIndex }} </h1>
                     {% assign newArray = newArray | concat:tmpIndex %}
                   {% else %}
                         {% assign newArray = matrix | split:',' %}
