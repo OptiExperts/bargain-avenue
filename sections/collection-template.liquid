@@ -942,10 +942,11 @@
                     {% for variant in product.variants %}
                       {% if variant.inventory_management != "shopify" %}{% continue %}{% endif %}
                       {% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity %}
-                      <h1>test {{ inventoryCount }} </h1>
+                      
                     {% endfor %}
 
                   {% assign indexCharSize = inventoryCount | append:'' | size %}
+                  <h1>test {{ indexCharSize }} </h1>
                   {% assign toSlice = zeroFillSize | minus:indexCharSize %}
                   {% assign tmpZeroFill = zeroFill | slice:0,toSlice %}
                   {% assign newOrder = inventoryCount | default:'0' %}
