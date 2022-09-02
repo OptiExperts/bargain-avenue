@@ -281,7 +281,7 @@
         "5d194221-8d2e-4ac5-b164-8bd70433e890"
       ],
       "settings": {
-        "scroll-effect": "pag-scroll",
+        "scroll-effect": "inf-scroll",
         "layout": "grid",
         "high_resolution_image": false,
         "image-effect": "fill",
