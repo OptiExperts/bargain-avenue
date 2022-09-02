@@ -957,7 +957,6 @@
                   {% if newArray %}
                     {% assign tmpIndex = matrix | split:',' %}
                     {% assign newArray = newArray | concat:tmpIndex %}
-                    <h1>test2 {{ newArray }} </h1>
                   {% else %}
                         {% assign newArray = matrix | split:',' %}
                   {% endif %}
@@ -967,10 +966,10 @@
 
          <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
           {% for newArrayItem in newArray %}
-          {% assign i = newArrayItem | split:'.' | last | abs %}
+          {% assign ij = newArrayItem | split:'.' | last | abs %}
 
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-               {% include 'product-card-grid', product: collection.products[i], max_height: max_height %}
+               {% include 'product-card-grid', product: collection.products[ij], max_height: max_height %}
             </li>
             <!-- raja grid -->
             {% else %}
