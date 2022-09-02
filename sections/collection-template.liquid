@@ -947,8 +947,8 @@
 
                   {% assign indexCharSize = inventoryCount | append:'' | size %}
                   {% assign toSlice = zeroFillSize | minus:indexCharSize %}
-                  <h1>test {{ toSlice }} </h1>
                   {% assign tmpZeroFill = zeroFill | slice:0,toSlice %}
+                  <h1>test {{ tmpZeroFill }} </h1>
                   {% assign newOrder = inventoryCount | default:'0' %}
                   {% assign matrix = tmpZeroFill | append:newOrder | append:'.'  | append:forloop.index0 %}
 
