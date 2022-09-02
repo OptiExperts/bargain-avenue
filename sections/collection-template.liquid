@@ -999,7 +999,7 @@
 
          {% else %}
          <div class="page-width px-0">
-
+<!-- raja list -->
           {% assign newArray = false %}
           {% assign zeroFill = '0000' %}
           {% assign zeroFillSize = zeroFill | size %}
@@ -1032,6 +1032,7 @@
             <li class="list-view-item">
                {% include 'product-card-list', product: collection.products[i] %}
             </li>
+            <!-- raja list -->
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0%}
             {% for i in (1..4) %}
