@@ -1148,7 +1148,7 @@
 {% assign newArray = newArray | sort | reverse %}
 {% for newArrayItem in newArray %}
   {% assign i = newArrayItem | split:'.' | last | abs %}
-  <h1>test1 {{ i }} </h1>
+
   {% assign grid = 'small--one-half medium-up--one-fifth' %}
   {% if paginationAmount == 1 %}
     {% assign grid = 'one-whole pagination_1' %}
