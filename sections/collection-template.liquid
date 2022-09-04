@@ -745,6 +745,27 @@
 
 </style>
 
+{% if section.settings.high_resolution_image %}
+{%- assign grid_image_width = '' -%}
+{% endif %}
+{% case section.settings.grid %}
+{% when 2 %}
+{%- assign max_height = 530 -%}
+{% when 3 %}
+{%- assign max_height = 345 -%}
+{% when 4 %}
+{%- assign max_height = 250 -%}
+{% when 5 %}
+{%- assign max_height = 195 -%}
+{% endcase %}
+{% if section.settings.layout == 'grid' and section.settings.scroll-effect == 'pag-scroll' %}
+{%- assign limit = section.settings.grid | times: section.settings.rows -%}
+{% elsif section.settings.scroll-effect == 'pag-scroll'  %}
+{%- assign limit = 16 -%}
+{% elsif section.settings.scroll-effect == 'inf-scroll'  %}
+{%- assign limit = 10000 -%}
+{% endif %}
+
 {%- assign refund_banner_block = section.blocks | where: 'type','refund-banner' | first -%}
 
 {% paginate collection.products by limit %}
@@ -920,6 +941,8 @@
             </div>
             {% endif %}
          </header>
+
+
          {% if section.settings.layout == 'grid' %}
          {% case section.settings.grid %}
          {% when 2 %}
@@ -931,47 +954,12 @@
          {% when 5 %}
          {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
          {% endcase %}
-  
          <div class="page-width px-0">
-            <!-- raja grid -->
-              {% assign newArray = false %}
-              {% assign zeroFill = '0000' %}
-              {% assign zeroFillSize = zeroFill | size %}
-              {% for product in collection.products %}
-                  {% assign inventoryCount = 0 %}
-                    {% for variant in product.variants %}
-                      {% if variant.inventory_management != "shopify" %}{% continue %}{% endif %}
-                      {% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity %}
-                      
-                    {% endfor %}
-
-                  {% assign indexCharSize = inventoryCount | append:'' | size %}
-                  {% assign toSlice = zeroFillSize | minus:indexCharSize %}
-                  {% assign tmpZeroFill = zeroFill | slice:0,toSlice %}
-                  {% assign newOrder = inventoryCount | default:'0' %}
-                  
-                  {% assign matrix = tmpZeroFill | append:newOrder | append:'.'  | append:forloop.index0 %}
-
-                  
-
-                  {% if newArray %}
-                    {% assign tmpIndex = matrix | split:',' %}
-                    {% assign newArray = newArray | concat:tmpIndex %}
-                  {% else %}
-                        {% assign newArray = matrix | split:',' %}
-                  {% endif %}
-                {% endfor %}
-
-              {% assign newArray = newArray | sort | reverse %}                  
-
          <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
-          {% for newArrayItem in newArray %}
-          {% assign ij = newArrayItem | split:'.' | last | abs %}
-
+            {% for product in collection.products %}
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-               {% include 'product-card-grid', product: collection.products[ij], max_height: max_height %}
+               {% include 'product-card-grid', max_height: max_height %}
             </li>
-            <!-- raja grid -->
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
             <li class="grid__item">
@@ -1000,43 +988,13 @@
             {% endfor %}
          </ul>
          </div>
-
          {% else %}
          <div class="page-width px-0">
-          <!-- raja list -->
-          {% assign newArray = false %}
-          {% assign zeroFill = '0000' %}
-          {% assign zeroFillSize = zeroFill | size %}
-          {% for product in collection.products %}
-              {% assign inventoryCount = 0 %}
-                {% for variant in product.variants %}
-                  {% if variant.inventory_management != "shopify" %}{% continue %}{% endif %}
-                  {% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity %}
-                {% endfor %}
-
-              {% assign indexCharSize = inventoryCount | append:'' | size %}
-              {% assign toSlice = zeroFillSize | minus:indexCharSize %}
-              {% assign tmpZeroFill = zeroFill | slice:0,toSlice %}
-              {% assign newOrder = inventoryCount | default:'0' %}
-              {% assign matrix = tmpZeroFill | append:newOrder | append:'.'  | append:forloop.index0 %}
-
-              {% if newArray %}
-                {% assign tmpIndex = matrix | split:',' %}
-                {% assign newArray = newArray | concat:tmpIndex %}
-              {% else %}
-                    {% assign newArray = matrix | split:',' %}
-              {% endif %}
-            {% endfor %}
-
-          {% assign newArray = newArray | sort | reverse %}    
-
          <ul class="list-view-items">
-          {% for newArrayItem in newArray %}
-          {% assign i = newArrayItem | split:'.' | last | abs %}
+            {% for product in collection.products %}
             <li class="list-view-item">
-               {% include 'product-card-list', product: collection.products[i] %}
+               {% include 'product-card-list', product: product %}
             </li>
-            <!-- raja list -->
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0%}
             {% for i in (1..4) %}
@@ -1072,10 +1030,9 @@
          </div>
          {% endif %}
          {% if section.settings.scroll-effect == 'pag-scroll' %}
-          {% if paginate.pages > 1 %}
-            {% include 'pagination' %}
-          {% endif %} 
-         {% endif %}
+         {% if paginate.pages > 1 %}
+         {% include 'pagination' %}
+         {% endif %} {% endif %}
       </div>
    </div>
   {% if collection.description != blank %}
@@ -1116,53 +1073,7 @@
     padding-right: 0px !important;
         }
 </style>
-{% comment %}
 
-{% assign newArray = false %}
-{% assign zeroFill = '0000' %}
-{% assign zeroFillSize = zeroFill | size %}
-{% for product in collection.products %}
-
-  {% assign inventoryCount = 0 %}
-  {% for variant in product.variants %}
-    {% if variant.inventory_management != "shopify" %}{% continue %}{% endif %}
-    {% assign inventoryCount = inventoryCount | plus:variant.inventory_quantity %}
-  {% endfor %}
-
-  {% assign indexCharSize = inventoryCount | append:'' | size %}
-  {% assign toSlice = zeroFillSize | minus:indexCharSize %}
-  {% assign tmpZeroFill = zeroFill | slice:0,toSlice %}
-  {% assign newOrder = inventoryCount | default:'0' %}
-  {% assign matrix = tmpZeroFill | append:newOrder | append:'.'  | append:forloop.index0 %}
-
-  {% if newArray %}
-    {% assign tmpIndex = matrix | split:',' %}
-    {% assign newArray = newArray | concat:tmpIndex %}
-  {% else %}
-    {% assign newArray = matrix | split:',' %}
-  {% endif %}
-
-{% endfor %}
-
-{% assign newArray = newArray | sort | reverse %}
-{% for newArrayItem in newArray %}
-  {% assign i = newArrayItem | split:'.' | last | abs %}
-
-  {% assign grid = 'small--one-half medium-up--one-fifth' %}
-  {% if paginationAmount == 1 %}
-    {% assign grid = 'one-whole pagination_1' %}
-  {% elsif paginationAmount == 2 %}
-     {% assign grid = 'one-half pagination_2' %}
-  {% elsif paginationAmount == 3 %}
-     {% assign grid = 'small--one-half medium-up--one-third pagination_3' %}
-  {% elsif paginationAmount == 4 %}
-     {% assign grid = 'small--one-half medium-up--one-quarter' %}
-  {% endif %}
-  <div class="grid__item {{ grid }}">
-    {% include 'product-card-grid', product: collection.products[i] %}
-  </div>
-{% endfor %}
-{%- endcomment -%}
 {% schema %}
 {
   "name": {
@@ -1338,7 +1249,7 @@
         "es": "Filas por página (solo cuadrícula)",
         "fr": "Rangées par page (grille uniquement)"
       },
-      "default": 12,
+      "default": 2,
       "min": 2,
       "max": 8,
       "step": 1
