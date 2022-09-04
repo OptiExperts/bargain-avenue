@@ -998,6 +998,7 @@
             {% else %}
             {%- assign is_empty_collection = true -%}
             {% endif %}
+            {% endfor %}
 
             {% for product in collection.products limit: products_per_page %}
             {% if product.available == false %}
@@ -1007,8 +1008,7 @@
               {% endif %}
             {% endif %}
           {% endfor %}
-            
-            {% endfor %}
+
          </ul>
          </div>
          {% else %}
