@@ -966,7 +966,7 @@
             
             
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-              {% if product.available and product.price >= product.compare_at_price_max %}
+              {% if product.available %}
                 {% include 'product-card-grid', max_height: max_height %}
                 {% assign remaining = remaining | minus: 1 %}
                {% endif %}
