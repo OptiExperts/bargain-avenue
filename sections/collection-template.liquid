@@ -1,4 +1,3 @@
-{%- comment -%}
 {% style %}
    .grid-view-item__image {object-fit : {{section.settings.image-effect}} !important;}
    .secondary {object-fit : {{section.settings.image-effect}} !important;}
@@ -1117,7 +1116,7 @@
     padding-right: 0px !important;
         }
 </style>
-{%- endcomment -%}
+{% comment %}
 
 {% assign newArray = false %}
 {% assign zeroFill = '0000' %}
@@ -1163,7 +1162,7 @@
     {% include 'product-card-grid', product: collection.products[i] %}
   </div>
 {% endfor %}
-
+{%- endcomment -%}
 {% schema %}
 {
   "name": {
