@@ -229,7 +229,7 @@
 			{% include 'delivery-estimate' %}
             <div class="cart-subtotal">
               <span class="cart-subtotal__title">{{ 'cart.general.subtotal' | t }}</span>
-              <span class="cart-subtotal__price" data-cart-subtotal><span class="money">{{ cart.total_price }}</span></span>
+              <span class="cart-subtotal__price" data-cart-subtotal><span class="money">{{ cart.total_price | money_with_currency }}</span></span>
             </div>
             <div class="cart__shipping rte">{{ taxes_shipping_checkout }}</div>
             {% if section.settings.cntd-pl == 'bfr-check' %}
