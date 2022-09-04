@@ -954,23 +954,12 @@
          {% when 5 %}
          {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
          {% endcase %}
-         <!-- start -->
          <div class="page-width px-0">
-
-          
-          {% assign remaining = products_per_page %}
-
          <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
-            {% for product in collection.products limit: products_per_page %}
-            {% if product.available and product.price >= product.compare_at_price_max %}
-            
+            {% for product in collection.products %}
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-              
-                {% include 'product-card-grid', max_height: max_height %}
-                {% assign remaining = remaining | minus: 1 %}
-               
+               {% include 'product-card-grid', max_height: max_height %}
             </li>
-          
             {% else %}
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
             <li class="grid__item">
@@ -996,8 +985,6 @@
             {% else %}
             {%- assign is_empty_collection = true -%}
             {% endif %}
-            {% endif %}
-
             {% endfor %}
          </ul>
          </div>
