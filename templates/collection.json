@@ -285,7 +285,7 @@
         "layout": "grid",
         "high_resolution_image": false,
         "image-effect": "fill",
-        "grid": 4,
+        "grid": 5,
         "rows": 8,
         "show_collection_image": true,
         "show_vendor": false,
