@@ -1071,11 +1071,13 @@
             <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
          </div>
          {% endif %}
+         {%- comment -%}
          {% if section.settings.scroll-effect == 'pag-scroll' %}
           {% if paginate.pages > 1 %}
             {% include 'pagination' %}
           {% endif %} 
          {% endif %}
+         {%- endcomment -%}
       </div>
    </div>
   {% if collection.description != blank %}
