@@ -747,7 +747,7 @@
 
 {%- assign refund_banner_block = section.blocks | where: 'type','refund-banner' | first -%}
 
-{% paginate collection.products by limit %}
+
 <div id="collection" class="page-width" data-section-id="{{ section.id }}" data-section-type="collection-template">
 
    <div class="no-filter">
@@ -976,7 +976,7 @@
             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
             <li class="grid__item">
                <div class="grid grid--uniform">
-                  {% for i in (1..limit) %}
+                  
                   <div class="grid__item {{ grid_item_width }}">
                      <div class="grid-view-item">
                         <a href="#" class="grid-view-item__link">
@@ -991,7 +991,7 @@
                         </a>
                      </div>
                   </div>
-                  {% endfor %}
+                
                </div>
             </li>
             {% else %}
