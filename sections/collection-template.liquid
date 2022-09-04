@@ -966,11 +966,11 @@
             
             
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-              {% if product.availablex %}
+              {% if product.available %}
                 {% include 'product-card-grid', max_height: max_height %}
                 {% assign remaining = remaining | minus: 1 %}
                {% endif %}
-             {% endif %}
+               
             </li>
           
             {% else %}
