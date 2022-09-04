@@ -281,11 +281,11 @@
         "5d194221-8d2e-4ac5-b164-8bd70433e890"
       ],
       "settings": {
-        "scroll-effect": "inf-scroll",
+        "scroll-effect": "pag-scroll",
         "layout": "grid",
         "high_resolution_image": false,
         "image-effect": "fill",
-        "grid": 4,
+        "grid": 5,
         "rows": 8,
         "show_collection_image": true,
         "show_vendor": false,
