@@ -964,7 +964,7 @@
             {% for product in collection.products limit: products_per_page %}
             {% if product.available == false %}
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-              {% if product.available == false %}
+              {% if remaining > 0 %}
                 {% include 'product-card-grid', max_height: max_height %}
                 {% assign remaining = remaining | minus: 1 %}
                {% endif %}
