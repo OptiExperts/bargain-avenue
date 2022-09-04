@@ -963,9 +963,9 @@
          <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
             {% for product in collection.products limit: products_per_page %}
             {% if product.available == false %}
-            {% if product.available and product.price >= product.compare_at_price_max %}
+            
             <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-              
+              {% if product.available and product.price >= product.compare_at_price_max %}
                 {% include 'product-card-grid', max_height: max_height %}
                 {% assign remaining = remaining | minus: 1 %}
                
