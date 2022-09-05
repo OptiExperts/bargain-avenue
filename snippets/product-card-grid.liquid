@@ -93,11 +93,11 @@
         </div>
    {% endif %}
    </div>
-   <a href="#" data-product-handle="{{ product.handle }}">
+   <h1>test</h1>
+   <a href="{{ product.url | within: collection }}">
    <div class="h4 grid-view-item__title">
       {{product.title}}
    </div>
-   </a>
    {%- if template.name == 'collection' -%}
       {%- liquid
         assign colours_available_number = product.metafields.c_f.colour_available_image | size
