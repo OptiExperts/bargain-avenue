@@ -85,16 +85,20 @@
    {%- endif -%}
    {%- endif -%}
    {% if settings.enable_wishlist and true %}
-      <a href="#" data-product-handle="{{ product.handle }}" class="btn tooltiptext add-to-wishlist" title="{{ 'customer.account.my_wishlist' | t }}"><i class="fa fa-heart-o"></i></a>
+      <a href="#" data-product-handle="{{ product.handle }}" class="btn tooltiptext add-to-wishlist" title="{{ 'customer.account.my_wishlist' | t }}">
+        <i class="fa fa-heart-o"></i>
+      </a>
    {% endif %}
    {% if settings.enable_hover_button and product.available %}
         </div>
    {% endif %}
    </div>
    <h1>test</h1>
+   <a href="#" data-product-handle="{{ product.handle }}">
    <div class="h4 grid-view-item__title">
       {{product.title}}
    </div>
+   </a>
    {%- if template.name == 'collection' -%}
       {%- liquid
         assign colours_available_number = product.metafields.c_f.colour_available_image | size
