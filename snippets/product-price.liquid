@@ -25,15 +25,15 @@
       </dt>
       <dd>
          {% if available %}
-            {% if compare_at_price > price %}
-            <span class="money price-item price-item--regular" data-regular-price >
-            {{ compare_at_price | money }}
-            </span>
-            {% else %}
-            <span class="money price-item price-item--sale-only" data-regular-price>
-            {{ money_price }}
-            </span>
-            {% endif %}
+         {% if compare_at_price > price %}
+         <span class="money price-item price-item--regular" data-regular-price >
+         {{ compare_at_price | money }}
+         </span>
+         {% else %}
+         <span class="money price-item price-item--sale-only" data-regular-price>
+         {{ money_price }}
+         </span>
+         {% endif %}
          {% else %}
          <span class="price-item price-item--regular" data-regular-price>
          {{ 'products.product.sold_out' | t }}
