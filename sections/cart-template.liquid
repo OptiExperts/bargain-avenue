@@ -8,7 +8,7 @@
          {% include 'countdown-cart' %}
          {% endif %}         
     </div>
-    <form action="/checkout" method="post" novalidate class="cart">
+    <form action="{{ routes.cart_url }}" method="post" novalidate class="cart">
       <table style="margin-bottom:0;">
         <thead class="cart__row">
           <th scope="col">{{ 'cart.label.product' | t }}</th>
