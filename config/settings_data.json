@@ -886,7 +886,7 @@
           "grid": 5,
           "rows": 5,
           "show_vendor": false,
-          "show_view_all": true
+          "show_view_all": false
         }
       },
       "1652233992aa034faf": {
