@@ -126,7 +126,7 @@
     {% elsif template == 'collection' %}
     <script type="lazyload2" data-src="{{ 'vendor-collection.js' | asset_url }}" defer="defer"></script>  
     {% else %}
-    <script type="lazyload2" data-src="{{ 'vendor-website.js' | asset_url }}" defer="defer"></script>  
+    <script src="{{ 'vendor-website.js' | asset_url }}" defer="defer"></script>  
     {% endif %}  
     {% if settings.enable_wishlist %}  
     <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
