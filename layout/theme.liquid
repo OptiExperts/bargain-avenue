@@ -119,12 +119,12 @@
     <link rel="stylesheet" href="{{ 'custom.css' | asset_url  }}">
     
     <script src="{{ 'jquery-3.5.1.min.js' | asset_url }}"></script>     
-    <script>var theme={breakpoints:{narrowscreen:500,medium:750,large:990,widescreen:1400},strings:{addToCart:{{'products.product.add_to_cart'|t|json}},soldOut:{{'products.product.sold_out'|t|json}},unavailable:{{'products.product.unavailable'|t|json}},regularPrice:{{'products.product.regular_price'|t|json}},salePrice:{{'products.product.sale_price'|t|json}},sale:{{'products.product.on_sale'|t|json}},showMore:{{'general.filters.show_more'|t|json}},showLess:{{'general.filters.show_less'|t|json}},addressError:{{'sections.map.address_error'|t|json}},addressNoResults:{{'sections.map.address_no_results'|t|json}},addressQueryLimit:{{'sections.map.address_query_limit_html'|t|json}},authError:{{'sections.map.auth_error_html'|t|json}},newWindow:{{'general.accessibility.link_messages.new_window'|t|json}},external:{{'general.accessibility.link_messages.external'|t|json}},newWindowExternal:{{'general.accessibility.link_messages.new_window_and_external'|t|json}},removeLabel:{{'cart.label.remove'|t:product:'[product]'|json}},update:{{'cart.label.update'|t|json}},quantity:{{'cart.label.quantity'|t|json}},discountedTotal:{{'cart.label.discounted_total'|t|json}},regularTotal:{{'cart.label.regular_total'|t|json}},priceColumn:{{'cart.label.price_column'|t|json}},quantityMinimumMessage:{{'products.product.quantity_minimum_message'|t|json}},cartError:{{'cart.general.cart_error'|t|json}},removedItemMessage:{{'cart.general.removed_item_html'|t:quantity:'[quantity]',link:'[link]'|json}},unitPrice:{{'products.product.unit_price_label'|t|json}},unitPriceSeparator:{{'general.accessibility.unit_price_separator'|t|json}},oneCartCount:{{'cart.popup.cart_count'|t:count:1|json}},otherCartCount:{{'cart.popup.cart_count'|t:count:'[count]'|json}},quantityLabel:{{'cart.popup.quantity_label'|t:quantity_count:'[count]'|json}}},moneyFormat:{{shop.money_format|json}},moneyFormatWithCurrency:{{shop.money_with_currency_format|json}}}</script>
+    <script type="text/javascript">var theme={breakpoints:{narrowscreen:500,medium:750,large:990,widescreen:1400},strings:{addToCart:{{'products.product.add_to_cart'|t|json}},soldOut:{{'products.product.sold_out'|t|json}},unavailable:{{'products.product.unavailable'|t|json}},regularPrice:{{'products.product.regular_price'|t|json}},salePrice:{{'products.product.sale_price'|t|json}},sale:{{'products.product.on_sale'|t|json}},showMore:{{'general.filters.show_more'|t|json}},showLess:{{'general.filters.show_less'|t|json}},addressError:{{'sections.map.address_error'|t|json}},addressNoResults:{{'sections.map.address_no_results'|t|json}},addressQueryLimit:{{'sections.map.address_query_limit_html'|t|json}},authError:{{'sections.map.auth_error_html'|t|json}},newWindow:{{'general.accessibility.link_messages.new_window'|t|json}},external:{{'general.accessibility.link_messages.external'|t|json}},newWindowExternal:{{'general.accessibility.link_messages.new_window_and_external'|t|json}},removeLabel:{{'cart.label.remove'|t:product:'[product]'|json}},update:{{'cart.label.update'|t|json}},quantity:{{'cart.label.quantity'|t|json}},discountedTotal:{{'cart.label.discounted_total'|t|json}},regularTotal:{{'cart.label.regular_total'|t|json}},priceColumn:{{'cart.label.price_column'|t|json}},quantityMinimumMessage:{{'products.product.quantity_minimum_message'|t|json}},cartError:{{'cart.general.cart_error'|t|json}},removedItemMessage:{{'cart.general.removed_item_html'|t:quantity:'[quantity]',link:'[link]'|json}},unitPrice:{{'products.product.unit_price_label'|t|json}},unitPriceSeparator:{{'general.accessibility.unit_price_separator'|t|json}},oneCartCount:{{'cart.popup.cart_count'|t:count:1|json}},otherCartCount:{{'cart.popup.cart_count'|t:count:'[count]'|json}},quantityLabel:{{'cart.popup.quantity_label'|t:quantity_count:'[count]'|json}}},moneyFormat:{{shop.money_format|json}},moneyFormatWithCurrency:{{shop.money_with_currency_format|json}}}</script>
     <script type="text/javascript">document.documentElement.className=document.documentElement.className.replace("no-js","js");</script>
     {% if template == 'index' %}  
-    <script type="lazyload2" data-src="{{ 'vendor-homepage.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'vendor-homepage.js' | asset_url }}" defer="defer"></script>
     {% elsif template == 'collection' %}
-    <script type="lazyload2" data-src="{{ 'vendor-collection.js' | asset_url }}" defer="defer"></script>  
+    <script src="{{ 'vendor-collection.js' | asset_url }}" defer="defer"></script>  
     {% else %}
     <script src="{{ 'vendor-website.js' | asset_url }}" defer="defer"></script>  
     {% endif %}  
@@ -138,7 +138,7 @@
       document.documentElement.className = document.documentElement.className.replace("no-js", "js");
     </script>
 
-    <script type="lazyload2">
+    <script type="text/javascript">
       var _bc_config = {
         "money_format"	: '{{ shop.money_format }}'
         ,"cart_url"		: {{routes.cart_url | json }}
@@ -149,7 +149,7 @@
       };
     </script>
     <script src="{{ 'api.jquery.js' | asset_url }}"></script>
-    <script type="lazyload2" data-src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
+    <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
 
     {% if template != 'collection'  %}
     <link rel="stylesheet" type="text/css" data-href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
@@ -159,9 +159,9 @@
 
     {% if settings.enable_wishlist %}
     <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'api.jquery.js' | shopify_asset_url }}"></script>
+    {{ 'api.jquery.js' | shopify_asset_url | script_tag }}
     {% endif %}
-    <script type="lazyload2" data-src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
 
       <!----- Content For Header section -->
     {% unless content_for_header contains "Shopify.designMode" %}
@@ -244,7 +244,10 @@
 
       gtag('config', 'G-0JTMMC7WBJ');
     </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->-- Global site tag (gtag.js) - Google Ads: 10966949162 - To be removed-->
+ <script async type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=AW-10966949162"></script>
+<script type="lazyload2">
+  window.dataLayer = win<<<<<<< HEAD
     
     <!-- Global site tag (gtag.js) - Google Ads: 10966949162 - To be removed-->
  <script async type="lazyload2" data-src="https://www.googletagmanager.com/gtag/js?id=AW-10966949162"></script>
@@ -258,19 +261,18 @@
     <!-- Global site tag (gtag.js) - Google Ads: 10966949162 - To be removed-->
     
     <!-- Microsoft Ads UET Tag -->
-    <script type="lazyload2">(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"27025776", tm:"shpfy_ui"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+    <script type="lazyload2">(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"27025776", tm:"shpfy_ui"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyStange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
     <!-- Microsoft Ads UET Tag --> 
-     </head>
+    
+=======
+   
+>>>>>>> 980c225741921897034dd489e48f5d7da6105e1d
+  </head>
   <body class="template-{{ template | split: '.' | first }}">
 
-    <script async type="lazyload2" data-src="https://t.cfjump.com/tag/81244"></script>             
+    <script async src="https://t.cfjump.com/tag/81244"></script>             
                  
-    <script async type="lazyload2" data-type="text/javascript" src="https://data.stats.tools/js/data.js"></script>
-    <style>
-      .show-test_61--mobile{display: block;}
-      @media screen and (min-width: 768px){
-        .show-test_61--mobile{display: none;}
-      }
+   }
       .show-test_73{display: none;}body.test_73 .show-test_73{display: block;}
       .show-test_74{display: none;}body.test_74 .show-test_74{display: block;}
       .show-test_82{display: none!important;}body.test_82 .show-test_82{display: flex!important;}.hide-test_82{display: block!important;}body.test_82 .hide-test_82{display: none!important;}
