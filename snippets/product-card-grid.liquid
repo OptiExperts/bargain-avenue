@@ -57,7 +57,7 @@
         {% endif %}
          {% if product.images.size > 1 %}
          {% if settings.enable_hover_button %}
-         <img class="lazy2 secondary small--hide lazyload lazypreload" data-src="{{ product.images.last | img_url: grid_image_width }}" alt="{{ product.images.last.alt | escape }}">
+         <img class="secondary small--hide lazyload lazypreload" src="{{ product.images.last | img_url: grid_image_width }}" alt="{{ product.images.last.alt | escape }}">
          {% endif %}
          {% endif %}
          {% when 'external_video' %}
